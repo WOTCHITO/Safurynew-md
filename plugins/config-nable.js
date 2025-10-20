@@ -160,5 +160,5 @@ conn.reply(m.chat, `🍟  *La Función ${type} Se Ha ${isEnable ? 'Activado' : '
 }
 handler.help = ['en', 'dis'].map((v) => v + 'able <option>');
 handler.tags = ['nable', 'owner'];
-handler.command = ['enable', 'disable', 'on', 'off'];
+handler.command = ['enable', 'disable', 'on', 'off', 'true', 'false'];
 export default handler;
