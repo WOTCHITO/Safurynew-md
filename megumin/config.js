@@ -20,7 +20,7 @@ global.owner = [
    ["258892692984006"],
 
    // <-- Número @s.whatsapp.net -->
-  ['5351524614', '🔥 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 (◣_◢)凸', true],
+  ['573023342288', '🔥 𝗖𝗿𝗲𝗮𝗱𝗼𝗿 (◣_◢)凸', true],
   ['5218715746374'],
   ['5218711426787'],
   ['5492916450307']
@@ -33,7 +33,7 @@ global.libreria = 'Baileys'
 global.baileys = 'fizzxydev/baileys-pro'
 global.vs = '^2.0.5'
 global.languaje = 'Español'
-global.nameqr = 'Megumin Bot - MD'
+global.nameqr = 'nexus Bot - MD'
 global.sessions = 'MeguminSession'
 global.jadi = 'MeguminJadiBot'
 global.meguminJadibts = true
