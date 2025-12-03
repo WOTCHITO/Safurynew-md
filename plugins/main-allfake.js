@@ -48,11 +48,11 @@ global.colab2 = 'Steven'
 global.colab3 = 'Dino'
 
 //Ids channel
-global.idchannel = '120363350554513092@newsletter'
-global.canalIdM = ["120363387958443019@newsletter", "120363350554513092@newsletter","120363358338732714@newsletter", "120363420238618096@newsletter", "120363420992828502@newsletter", "120363419837575209@newsletter"]
+global.idchannel = '120363404923920766@newsletter'
+global.canalIdM = ["120363404923920766@newsletter", "120363404923920766@newsletter","120363404923920766@newsletter", "", "120363404923920766@newsletter", ""]
 global.canalNombreM = ["──͟͞꘩𓎇̶𝐿̸𝑒̤𝑔֟֯፝𝑒⃯𝑛̷̈𝑑̤𝑠͡𔗓𝐵̸͜𝑜𝑡͜ꤩꤨ𝑠ꦁ⃯㍰ꫂ", "💜̶۫̄͟㉿𓏲𝐊̸͕᥆𝗍͡᥆r̤і̷𓍲̈͜𝗨̴ᥣ̥𝗍̈rᥲ̄𓊓̵̬𝐂̸͔һ͡ᥲ͓ᥒ̴͍ᥒ̷̈ᥱ̤ᥣ̵⋆͙̈么͟͞──","──̄͟͞⛛̵̅𝐌̸͡𝐞𝐠̵𝐮̲͜𝐦̷̈𝐢͜𝐧̸̤𝐁̷𝐨̶̇͜𝐭𓊓̴̻𝐂̷𝐡̶͡𝐚𝐧̈͜𝐧͜𝐞͜𝐥̵̲͞🔥̵̄͟", "⏤͟͟͞͞☆ Stellar Api - Reset ᰔᩚ", "₊· ͟͟͞͞꒰ ✩ 𝐒𝐭𝐞𝐥𝐥𝐚𝐫 𝐖𝐚𝐁𝐨𝐭 - 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⏤͟͟͞͞✿", "⏤͟͟͞͞☆  Night ⚡︎ Light - Team ✿"]
 global.channelRD = await getRandomChannel()
-
+120363404923920766@newsletter120363404923920766@newsletter
 //Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
