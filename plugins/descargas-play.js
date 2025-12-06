@@ -1,228 +1,169 @@
+import fetch from "node-fetch";
 import yts from 'yt-search';
-import axios from 'axios';
+import axios from "axios";
+import { fetchYouTubeDownload } from '../lib/ytdll.js'
 
-const tempStorage = {};
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  let user = global.db.data.users[m.sender];
 
-const axiosConfig = {
-    timeout: 4000,
-    headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Accept': 'application/json',
-        'Connection': 'keep-alive'
+  if (user.chocolates < 2) {
+    return conn.reply(m.chat, `ꕥ No tienes suficientes *Chocolates 🍫* Necesitas 2 más para usar este comando.`, m);
+  }
+
+  try {
+    if (!text.trim()) {
+      return conn.reply(m.chat, `✧ Ingresa el nombre de la música a descargar.`, m);
     }
+
+    const search = await yts(text);
+    if (!search.all || search.all.length === 0) {
+      return m.reply('No se encontraron resultados para tu búsqueda.');
+    }
+
+    const videoInfo = search.all[0];
+    if (!videoInfo) {
+      return m.reply('No se pudo obtener información del video.');
+    }
+
+    const { title, thumbnail, timestamp, views, ago, url, author } = videoInfo;
+
+    if (!title || !thumbnail || !timestamp || !views || !ago || !url || !author) {
+      return m.reply('Información incompleta del video.');
+    }
+
+    const vistas = formatViews(views);
+    const canal = author.name ? author.name : 'Desconocido';
+        const infoMessage = `
+*𖹭.╭╭ִ╼࣪━ִﮩ٨ـﮩ♡̫𝗆𝖾𝗀֟፝𝗎꯭𝗆𝗂꯭𝗇𖦹ׅ♡ִ̫ﮩ٨ـﮩ━ִ╾࣪╮╮.𖹭*
+> ♡ *Título:* ${title || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Duración:* ${timestamp || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Vistas:* ${vistas || 'Desconocido'}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Canal:* ${canal}
+*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
+> ♡ *Publicado:* ${ago || 'Desconocido'}
+*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ׄۛ۫۫۫۫۫۫ۜ*`;
+
+    const thumb = (await conn.getFile(thumbnail))?.data;
+
+    const JT = {
+      contextInfo: {
+        externalAdReply: {
+          title: botname,
+          body: dev,
+          mediaType: 1,
+          previewType: 0,
+          mediaUrl: url,
+          sourceUrl: url,
+          thumbnail: thumb,
+          renderLargerThumbnail: true,
+        },
+      },
+    };
+
+    await conn.reply(m.chat, infoMessage, m, JT);
+
+ if (command === 'play' || command === 'mp3'  || command === 'playaudio') {
+  try {
+    const apiAudioUrl = `https://api.stellarwa.xyz/dow/ytmp3?url=${url}&apikey=Diamond`;
+    const response = await fetch(apiAudioUrl);
+    const json = await response.json()
+    const { title, dl } = json.data
+
+    if (!dl) throw new Error('El enlace de audio no se generó correctamente.');
+
+    await conn.sendMessage(m.chat, { audio: { url: dl }, fileName: `${title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+  } catch (e) {
+    console.error('Error al enviar el audio:', e.message);
+try{
+              const result = await fetchYouTubeDownload(url)
+
+    if (!result.success) throw new Error(result.error || 'No se pudo obtener datos del video.')
+
+    const { title, downloads } = result
+          const audio = downloads.find(d => d.contentType?.startsWith('audio'))
+
+          if (!audio?.url) throw new Error('No se encontró audio con ytdown.')
+
+          await conn.sendMessage(m.chat, {
+            audio: { url: audio.url },
+            fileName: `${title}.mp3`,
+            mimetype: 'audio/mpeg'
+          }, { quoted: m })
+
+        } catch (e) {
+console.error('Falló:', e.message);
+    return conn.reply(m.chat, `⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente mas tarde. ${e.message}`, m);
+  }}
+} else if (command === 'play2' || command === 'mp4' || command === 'playvideo') {
+  try {
+    const apiVideoUrl = `https://api.stellarwa.xyz/dow/ytmp4?url=${url}&apikey=Diamond`;
+    const response = await fetch(apiVideoUrl);
+    const json = await response.json()
+    const { title, dl } = json.data
+
+    if (!dl) throw new Error('El enlace de audio no se generó correctamente.');
+
+    await conn.sendMessage(m.chat, { video: { url: dl }, fileName: `${title}.mp4`, mimetype: 'video/mp4' }, { quoted: m });
+  } catch {
+  try {
+    const response = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`);
+    const json = await response.json();
+    const resultad = json.result;
+    const resultado = resultad.download.url
+
+    if (!resultad || !resultado) throw new Error('El enlace de video no se generó correctamente.');
+
+    await conn.sendMessage(m.chat, { video: { url: resultado }, fileName: resultad.title, mimetype: 'video/mp4', caption: dev }, { quoted: m });
+  } catch (e) {
+    console.error('Error al enviar el video:', e.message);
+try {
+        const { title, downloads } = await fetchYouTubeDownload(url)
+        const video = downloads.find(d => d.contentType?.startsWith('video'))
+
+        if (!video?.url) throw new Error('No se encontró video.')
+
+        await conn.sendMessage(m.chat, {
+          video: { url: video.url },
+          fileName: `${title}.mp4`,
+          mimetype: 'video/mp4',
+          caption: dev
+        }, { quoted: m });
+
+      } catch (e) {
+console.error('Falló:', e.message);
+    return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente mas tarde.', m);
+  }}}
+} else {
+  return conn.reply(m.chat, '⚠︎ Comando no reconocido.', m);
+}
+
+    user.chocolates -= 2;
+    conn.reply(m.chat, `ꕥ Has utilizado 2 *Chocolates 🍫*`, m);
+
+  } catch (error) {
+    return m.reply(`⚠︎ Ocurrió un error: ${error}`);
+  }
 };
 
-export default {
-    commands: ['play', 'play2'],
+handler.command = handler.help = ['play', 'mp3', 'playaudio', 'play2', 'mp4', 'playvideo'];
+handler.tags = ['downloader'];
 
-    async before(ctx) {
-        const { body, sender, bot, chatId } = ctx;
-        if (!body) return;
-        const text = body.toLowerCase().trim();
-        const validOptions = ['🎶', 'audio', '📽', 'video'];
-        if (!validOptions.includes(text)) return;
-        const userData = tempStorage[sender];
-        if (!userData || !userData.url) return;
-
-        delete tempStorage[sender];
-        const isAudio = text === '🎶' || text === 'audio';
-        
-        try {
-            let mediaUrl;
-            if (isAudio) {
-                mediaUrl = await getAudioUrl(userData.url);
-                if (mediaUrl) {
-                    await bot.sock.sendMessage(chatId, {
-                        audio: { url: mediaUrl.url },
-                        mimetype: 'audio/mpeg',
-                        fileName: ${cleanFileName(userData.title)}.mp3
-                    }, { quoted: ctx.msg });
-                } else {
-                    await ctx.reply('❌ No se pudo descargar el audio.');
-                }
-            } else {
-                mediaUrl = await getVideoUrl(userData.url);
-                if (mediaUrl) {
-                    await bot.sock.sendMessage(chatId, {
-                        video: { url: mediaUrl.url },
-                        caption: ⟡ *${userData.title}*,
-                        fileName: ${cleanFileName(userData.title)}.mp4
-                    }, { quoted: ctx.msg });
-                } else {
-                    await ctx.reply('❌ No se pudo descargar el video.');
-                }
-            }
-        } catch (error) {
-            console.error('Error downloading media:', error);
-            await ctx.reply('❌ Error al descargar el archivo.');
-        }
-    },
-
-    async execute(ctx) {
-        const { args, sender, bot, chatId } = ctx;
-
-        if (args.length === 0) {
-            return await ctx.reply('ꕤ Debes ingresar el nombre de la canción.\nEjemplo: #play Billie Eilish');
-        }
-
-        await ctx.reply('⏳ Buscando...');
-
-        try {
-            const query = args.join(' ');
-            const searchResults = await yts(query);
-            const video = searchResults.videos[0];
-
-            if (!video) {
-                return await ctx.reply('ꕤ No se encontraron resultados.');
-            }
-
-            if (video.seconds > 1800) {
-                return await ctx.reply('❌ El video supera los 30 minutos de duración.');
-            }
-
-            tempStorage[sender] = {
-                url: video.url,
-                title: video.title,
-                timestamp: video.timestamp,
-                views: video.views,
-                author: video.author.name,
-                thumbnail: video.thumbnail
-            };
-
-            const text = `⌘━─━─≪ YOUTUBE ≫─━─━⌘
-★ Título: ${video.title}
-★ Duración: ${video.timestamp}
-★ Vistas: ${formatViews(video.views)}
-★ Autor: ${video.author.name}
-★ Link: ${video.url}
-⌘━━─≪ Kaoruko ≫─━━⌘
-
-Responde con:
-🎶 o audio para audio
-📽 o video para video`;
-
-            await bot.sock.sendMessage(chatId, {
-                image: { url: video.thumbnail },
-                caption: text
-            }, { quoted: ctx.msg });
-        } catch (error) {
-            console.error('Error in play command:', error);
-            await ctx.reply('ꕤ Error al buscar el video.');
-        }
-    }
-};
-
-async function getAudioUrl(url) {
-    const apis = [
-        {
-            name: "Xyro", 
-            call: async () => {
-                const res = await axios.get(https://api.xyro.site/download/youtubemp3?url=${encodeURIComponent(url)}, axiosConfig);
-                return res.data?.result?.download;
-            }
-        },
-        {
-            name: "ZenzzXD",
-            call: async () => {
-                const res = await axios.get(https://api.zenzxz.my.id/downloader/ytmp3?url=${encodeURIComponent(url)}, axiosConfig);
-                return res.data?.data?.download_url || res.data?.data?.url;
-            }
-        },
-        {
-            name: "Yupra",
-            call: async () => {
-                const res = await axios.get(https://api.yupra.my.id/api/downloader/ytmp3?url=${encodeURIComponent(url)}, axiosConfig);
-                return res.data?.result?.link;
-            }
-        },
-        {
-            name: "Delirius",
-            call: async () => {
-                const res = await axios.get(https://api.delirius.store/downloader/youtube-mp3?url=${encodeURIComponent(url)}, axiosConfig);
-                return res.data?.result?.url;
-            }
-        }
-    ];
-
-    return await fetchFastApi(apis);
-}
-
-async function getVideoUrl(url) {
-    const apis = [
-        {
-            name: "Xyro",
-            call: async () => {
-                const res = await axios.get(https://api.xyro.site/download/youtubemp4?url=${encodeURIComponent(url)}&quality=360, axiosConfig);
-                return res.data?.result?.download;
-            }
-        },
-        {
-            name: "ZenzzXD",
-            call: async () => {
-                const res = await axios.get(https://api.zenzxz.my.id/downloader/ytmp4?url=${encodeURIComponent(url)}&resolution=360p, axiosConfig);
-                return res.data?.data?.download_url || res.data?.data?.url;
-            }
-        },
-        {
-            name: "Yupra",
-            call: async () => {
-                const res = await axios.get(https://api.yupra.my.id/api/downloader/ytmp4?url=${encodeURIComponent(url)}, axiosConfig);
-                return res.data?.result?.formats?.[0]?.url;
-            }
-        },
-        {
-            name: "Delirius",
-            call: async () => {
-                const res = await axios.get(https://api.delirius.store/downloader/youtube-mp4?url=${encodeURIComponent(url)}&quality=360, axiosConfig);
-                return res.data?.result?.url;
-            }
-        }
-    ];
-
-    return await fetchFastApi(apis);
-}
-
-async function fetchFastApi(apis) {
-    const promises = apis.map(api => 
-        Promise.race([
-            api.call().then(result => {
-                if (result && isValidUrl(result)) {
-                    return { url: result, api: api.name };
-                }
-                return null;
-            }),
-            new Promise(resolve => setTimeout(() => resolve(null), 3000))
-        ])
-    );
-
-    const results = await Promise.all(promises);
-    const winner = results.find(r => r !== null);
-    
-    if (winner) {
-        console.log(✅ API exitosa: ${winner.api});
-        return winner;
-    }
-
-    return null;
-}
-
-function isValidUrl(string) {
-    try {
-        const url = new URL(string);
-        return url.protocol === 'http:' || url.protocol === 'https:';
-    } catch (_) {
-        return false;
-    }
-}
-
-function cleanFileName(name) {
-    return name.replace(/[<>:"/\\|?*]/g, "").substring(0, 50);
-}
+export default handler;
 
 function formatViews(views) {
-    if (!views) return "No disponible";
-    if (views >= 1e9) return (views / 1e9).toFixed(1) + "B";
-    if (views >= 1e6) return (views / 1e6).toFixed(1) + "M";
-    if (views >= 1e3) return (views / 1e3).toFixed(1) + "K";
-    return views.toString();
+  if (views === undefined) {
+    return "No disponible";
+  }
+
+  if (views >= 1_000_000_000) {
+    return `${(views / 1_000_000_000).toFixed(1)}B (${views.toLocaleString()})`;
+  } else if (views >= 1_000_000) {
+    return `${(views / 1_000_000).toFixed(1)}M (${views.toLocaleString()})`;
+  } else if (views >= 1_000) {
+    return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`;
+  }
+  return views.toString();
 }
