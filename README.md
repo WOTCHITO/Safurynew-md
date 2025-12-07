@@ -1,132 +1,86 @@
-> 🌧 Versión actual: ^1.0.5
+## **`H O L A 👋`**
 
-<h1 align="center">💣 Megumin Bot</p>
-<p>
-        <img src= "https://files.catbox.moe/mwi0gz.jpg">
-    </p>
-
---- 
-
-## 🌷 Stellar-API
-
-> 💛 **Visita mi API, puede ser útil para tus proyectos.**  
-> Estaré actualizándola constantemente para que evolucione y que más personas se animen a usarla.
-
-### 🦠 **Enlaces!**
+<a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=17&duration=4000&pause=1000&color=FFFB00&center=true&width=435&lines=NexusBot-MD+%E2%9C%A8%EF%B8%8F;Gracias+Por+Visitar+Este+Repositorio+;Espero+Te+Guste+Mucho;D%C3%A9janos+Una+Estrella+%F0%9F%8C%9F+(No+Obligatorio)" alt="Typing SVG" /></a>
 
 
-| Tipo      | Link                                                                 |
-|--------------|------------------------------------------------------------------------|
-| 🌱 Api        | [Aquí](https://api.stellarwa.xyz)                         |
-| 🛍️ Shop     | [Aquí](https://api.stellarwa.xyz/store)             |
-| 🐸 Canal     | [Aquí](https://whatsapp.com/channel/0029Vb6mZ5TIt5s4mgJuim34)             |
+------------------
 
----
+# ![logo](https://telegra.ph/file/7f6ffca22fef97f620001.jpg)
 
-## Descripción
+### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=19&duration=4000&pause=1000&color=DFF700&width=435&lines=%F0%9F%92%96+GRUPO+DEL+BOT+%F0%9F%92%96" alt="Typing SVG" /></a>
 
-Megumin es un bot de WhatsApp multifuncional basado en `baileys`. Este bot ofrece una variedad de características para mejorar tu experiencia en WhatsApp.
+<a href="https://chat.whatsapp.com/G9MpDVmJtbiIpItEZpg70s" target="blank"><img src="https://img.shields.io/badge/GRUPO_OFC_DEL_BOT_-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>
 
----
 
-### **`❤️ YouTube 🍬`**
-<a href="https://youtube.com/@davidchian4957">
-  <img width="180px" src="https://files.catbox.moe/3m3dih.jpg"/>
-</a>
 
-<details>
- <summary><b>:paperclip: Tutoriales</b></summary>
+ > NO SPAMEAR COMANDOS
 
-- **Termux:** [Aquí](https://youtu.be/gqtGeXRLImQ?si=PpM7EitywqFunEU5)
-- **Sky:** [Aquí](https://youtu.be/TzHyGH_6GH0?si=uKS3h8MXIhMOGrEM)
 
-</details>
+### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=19&duration=4000&pause=1000&color=8909F7&width=435&lines=+%F0%9F%96%8D+LETRA+DEL+BOT+%F0%9F%96%8D" alt="Typing SVG" /></a> 
+- PAGINA USADA PARA LA LETRA [Aqui](https://smiley.cool/es/weirdmaker.php)
 
---- 
 
-## **`🔥 Despliegue en BoxMineWorld 🚀`**
+### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=19&duration=4000&pause=1000&color=E2E1F7&width=435&lines=%E2%9A%99%EF%B8%8F+AJUSTES+%E2%9A%99%EF%B8%8F" alt="Typing SVG" /></a> 
+- CLONAR EL REPOSITORIO [Aqui](https://github.com/WOTCHITO/NexusBot-MD/fork)
 
-<a href="https://boxmineworld.com">
-  <img width="180px" src="https://i.imgur.com/allAyd4.png"/>
-</a>
 
-<details>
- <summary><b>📎 Enlaces Importantes</b></summary>
-
-- **Pagina Oficial:** [`Boxmineworld`](https://boxmineworld.com)
-- **Tutorial - Crear cuenta en la Dashboard:** [`Dashboard`](https://www.youtube.com/watch?v=ZAwBLuNmIlI)
-- **Dashboard:** [`Dash`](https://dash.boxmineworld.com)
-- **Panel:** [`Aquí`](https://panel.boxmineworld.com)
-- **Dudas sobre el Host:** [`Discord`](https://discord.gg/84qsr4v) _(Preguntar por Vicemi)_
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va71C1q2UPBOICnxu83r)
-
-</details>
-
----
-
-### **`💣 Instalación por termux`**
-
-<details>
- <summary><b>:paperclip: 🖤 Comandos</b></summary>
-
-<img src="https://files.catbox.moe/uut7ke.jpg" alt="MeguminBot" style="width: 100%; height: auto; max-width: 500px;">
-
-> Nota: Copie y pegue los comandos en termux uno por uno.
+### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=19&duration=4000&pause=1000&color=6532F7&width=435&lines=+%F0%9F%91%BE+ACTIVAR+EN+TERMUX+%F0%9F%91%BE" alt="Typing SVG" /></a> 
+- ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 ```bash
-termux-setup-storage
+cd && termux-setup-storage
 ```
 
 ```bash
-apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
+apt-get update -y && apt-get upgrade -y
 ```
 
 ```bash
-git clone https://github.com/David-Chian/Megumin-Bot-MD && cd Megumin-Bot-MD
+git clone https://github.com/WOTCHITO/Nexus.git && cd Nexus
 ```
 
 ```bash
-yarn install
-```
-
-```bash
-npm install
-```
-
-```bash
-npm update
+yarn install && npm install
 ```
 
 ```bash
 npm start
 ```
 
-> Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación
+### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=15&duration=4000&pause=1000&color=5A5A5A&width=435&lines=%E2%9C%94%EF%B8%8F+ACTIVAR+EN+CASO+DE+DETENERSE+EN+TERMUX+%E2%9C%94%EF%B8%8F" alt="Typing SVG" /></a> 
 
-### **💣 Activar en caso de detenerse en termux**
+> ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
+```bash
+ cd
+```
+```bash
+ cd Nexus-termux
+```
+```bash
+ npm start
+```
 
-> Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
+###  <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=19&duration=4000&pause=1000&color=CCEBF7&width=435&lines=%F0%9F%91%BD+OBTENER+OTRO+CODIGO+QR+EN+TERMUX+%F0%9F%91%BD" alt="Typing SVG" /></a> 
 
-Abre Termux y navega al directorio del bot:
-   
-   ```bash
-    cd Megumin-Bot-MD
-   ```
+- DETENER EL BOT DANDO CLICK EN EL SIMBOLO CTROL EN TERMUX MAS LA LETRA Z EN SU TECLADO MOVIL HASTA QUE SALGA ALGO EN VERDE SIMILAR A  safury-termux $  
+```bash
+ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
+> cd 
+> cd NexusBot-MD
+> rm -rf NexusSession
+> npm start
+```
 
-Inicia el bot nuevamente:
-  
-   ```bash
-    npm start
-   ```
 
-</details>
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - Nexus bot**</summary><img src="https://telegra.ph/file/df9e39ea02ef177ac5194.jpg"></details>
 
----
+ ### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=15&duration=4000&pause=1000&color=FFCE00&width=435&lines=%F0%9F%91%91+DUDAS+SOBRE+EL+BOT%3F%2CCONTACTA+AL+CREADOR+%F0%9F%91%91" alt="Typing SVG" /></a> 
+<a href="http://wa.me/3023342288" target="blank"><img src="https://img.shields.io/badge/EDER-CREADOR-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 
-### **`🪐 COLABORADOR`**
+
+
+
+### <a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=4000&pause=1000&color=55FFE3&width=435&lines=%F0%9F%A7%B8+Mi+Creador" alt="Typing SVG" /></a>
 <a
-href="https://github.com/DevZyxlJs"><img src="https://github.com/DevZyxlJs.png" width="80" height="80" alt="Alexiu"/></a> <a
-href="https://github.com/CheirZ"><img src="https://github.com/CheirZ.png" width="80" height="80" alt="Miguel"/></a>
+href="https://github.com/WOTCHITO"><img src="https://github.com/WOTCHITO.png" width="140" height="140" alt="Eder"/></a>
 
-### **`👑 CREADOR`**
-<a
-href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="150" height="150" alt="David"/></a>
+<a href="https://github.com/WOTCHITO"><img src="https://readme-typing-svg.herokuapp.c
