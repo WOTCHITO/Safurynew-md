@@ -1,6 +1,168 @@
 /*
-• @David-Chian
-- https://github.com/David-Chian
-*/
+ * Plugin para Confirmar/Reclamar personajes del Gacha
+ * Reescrito para usar sistema de caché en memoria
+ * @David-Chian - https://github.com/David-Chian
+ */
 
-const _0x48a5e9=_0x20c7;function _0x20c7(_0x339162,_0x52eb6e){const _0x1bd886=_0x1bd8();return _0x20c7=function(_0x20c730,_0x5985af){_0x20c730=_0x20c730-0x88;let _0x5165f6=_0x1bd886[_0x20c730];return _0x5165f6;},_0x20c7(_0x339162,_0x52eb6e);}(function(_0x4f8975,_0x462f89){const _0x2c2bcf=_0x20c7,_0x3a46cd=_0x4f8975();while(!![]){try{const _0x485a20=-parseInt(_0x2c2bcf(0xb2))/0x1*(-parseInt(_0x2c2bcf(0xab))/0x2)+-parseInt(_0x2c2bcf(0xa3))/0x3+parseInt(_0x2c2bcf(0x8d))/0x4+parseInt(_0x2c2bcf(0xaa))/0x5*(parseInt(_0x2c2bcf(0xa2))/0x6)+parseInt(_0x2c2bcf(0xba))/0x7+-parseInt(_0x2c2bcf(0xb6))/0x8+parseInt(_0x2c2bcf(0xa0))/0x9*(-parseInt(_0x2c2bcf(0xa4))/0xa);if(_0x485a20===_0x462f89)break;else _0x3a46cd['push'](_0x3a46cd['shift']());}catch(_0x53c2e3){_0x3a46cd['push'](_0x3a46cd['shift']());}}}(_0x1bd8,0xc546c));function _0x1bd8(){const _0x5df027=['getTime',',\x20𝒉𝒂𝒔\x20𝒓𝒐𝒃𝒂𝒅𝒐\x20𝒂\x20','Megumin-Bot-MD','2281840zFbwIA','some','value','reply','3797388dgDqfQ','push','¡𝑬𝒍\x20𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆\x20','help','repository','name','characterCount','𝑬𝒔𝒕𝒆\x20𝒄𝒐𝒎𝒂𝒏𝒅𝒐\x20𝒔𝒐𝒍𝒐\x20𝒆𝒔𝒕𝒂\x20𝒅𝒊𝒔𝒑𝒐𝒏𝒊𝒃𝒍𝒆\x20𝒑𝒂𝒓𝒂\x20`𝑴𝒆𝒈𝒖𝒎𝒊𝒏-𝑩𝒐𝒕-𝑴𝑫`.\x0a\x20🔥\x20https://github.com/David-Chian/Megumin-Bot-MD','¡𝑭𝒆𝒍𝒊𝒄𝒊𝒅𝒂𝒅𝒆𝒔\x20@','url','949080vquLwT','register','\x20𝒚𝒂\x20𝒆𝒔\x20𝒅𝒆\x20𝒐𝒕𝒓𝒐\x20𝒖𝒔𝒖𝒂𝒓𝒊𝒐\x20𝒚\x20𝒏𝒐\x20𝒑𝒖𝒆𝒅𝒆𝒔\x20𝒓𝒐𝒃𝒂𝒓𝒍𝒐!\x0a𝑷𝒓𝒖𝒆𝒃𝒂\x20𝒔𝒖𝒆𝒓𝒕𝒆\x20𝒄𝒐𝒏\x20𝒆𝒍\x20𝒄𝒐𝒎𝒂𝒏𝒅𝒐\x20!𝒓𝒐𝒃𝒂𝒓𝒑','parse','filter','¡𝒀𝒂\x20𝒕𝒊𝒆𝒏𝒆𝒔\x20𝒆𝒍\x20𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆\x20','¡𝑵𝒐\x20𝒉𝒂𝒔\x20𝒑𝒐𝒅𝒊𝒅𝒐\x20𝒓𝒐𝒃𝒂𝒓\x20𝒆𝒍\x20𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆\x20','stringify','utf-8','Error\x20al\x20leer\x20package.json:','quoted','git+https://github.com/David-Chian/Megumin-Bot-MD.git','usuarios','text','chat','split','./package.json','error','existsSync','9KRvOGc','command','1138182HpfWtM','2045226yvhNqL','7368600bliKwF','characters','personajesReservados','totalRwcoins','userId','readFileSync','35WANvrM','808486YhtwDr','data.json','random','chats','\x20𝒔𝒆𝒈𝒖𝒏𝒅𝒐𝒔.','rollwaifu','getName','1gFLfBY'];_0x1bd8=function(){return _0x5df027;};return _0x1bd8();}import _0x2081e6 from'fs';let cooldowns={};const obtenerDatos=()=>{const _0x126193=_0x20c7;return _0x2081e6[_0x126193(0x9f)](_0x126193(0xac))?JSON[_0x126193(0x90)](_0x2081e6[_0x126193(0xa9)](_0x126193(0xac),_0x126193(0x95))):{'chats':{}};},guardarDatos=_0x330293=>{const _0x4a7005=_0x20c7;_0x2081e6['writeFileSync'](_0x4a7005(0xac),JSON[_0x4a7005(0x94)](_0x330293,null,0x2));},verifi=()=>{const _0x554140=_0x20c7;try{const _0x150944=JSON['parse'](_0x2081e6['readFileSync'](_0x554140(0x9d),_0x554140(0x95)));if(_0x150944[_0x554140(0x88)]!==_0x554140(0xb5))return![];if(_0x150944[_0x554140(0xbe)]['url']!==_0x554140(0x98))return![];return!![];}catch(_0xa87f45){return console[_0x554140(0x9e)](_0x554140(0x96),_0xa87f45),![];}};let handler=async(_0x3db164,{conn:_0x578c11})=>{const _0x56beb1=_0x20c7;if(!_0x3db164[_0x56beb1(0x97)])return;if(!verifi()){await _0x578c11[_0x56beb1(0xb9)](_0x3db164[_0x56beb1(0x9b)],_0x56beb1(0x8a),_0x3db164,rcanal);return;}let _0x97919e=_0x3db164['chat'],_0x4af231=_0x3db164['sender'],_0x3e1396=await _0x578c11[_0x56beb1(0xb1)](_0x4af231),_0x54f883=_0x3db164['quoted'][_0x56beb1(0x9a)]['match'](/<id:(.*)>/)?.[0x1],_0x4cde3a=obtenerDatos();if(!_0x54f883)return;!_0x4cde3a[_0x56beb1(0xae)][_0x97919e]&&(_0x4cde3a['chats'][_0x97919e]={'usuarios':{},'personajesReservados':[]});let _0x1277f6=_0x4cde3a[_0x56beb1(0xae)][_0x97919e],_0x296a64=_0x1277f6[_0x56beb1(0xa6)]['find'](_0x225f96=>_0x225f96['id']===_0x54f883),_0x466690=new Date()[_0x56beb1(0xb3)](),_0x345510=0xa*0x3c*0x3e8,_0x394b5c=cooldowns[_0x4af231]||0x0;if(_0x466690-_0x394b5c<_0x345510){let _0x6500dd=_0x345510-(_0x466690-_0x394b5c),_0x28ed4d=Math['floor'](_0x6500dd/0xea60),_0x195b86=Math['floor'](_0x6500dd%0xea60/0x3e8);await _0x578c11[_0x56beb1(0xb9)](_0x3db164['chat'],'𝐷𝑒𝑏𝑒𝑠\x20𝑒𝑠𝑝𝑒𝑟𝑎𝑟\x20𝑎𝑛𝑡𝑒𝑠\x20𝑑𝑒\x20𝑖𝑛𝑡𝑒𝑛𝑡𝑎𝑟\x20𝑛𝑢𝑒𝑣𝑎𝑚𝑒𝑛𝑡𝑒.\x0a𝑻𝒊𝒆𝒎𝒑𝒐\x20𝒓𝒆𝒔𝒕𝒂𝒏𝒕𝒆:\x20'+_0x28ed4d+'\x20𝒎𝒊𝒏𝒖𝒕𝒐𝒔\x20𝒚\x20'+_0x195b86+_0x56beb1(0xaf),_0x3db164,rcanal);return;}if(!_0x296a64){_0x578c11[_0x56beb1(0xb9)](_0x3db164['chat'],'¡𝑳𝒐\x20𝒔𝒊𝒆𝒏𝒕𝒐,\x20𝒆𝒔𝒕𝒆\x20𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆\x20𝒏𝒐\x20𝒆𝒔𝒕𝒂\x20𝒅𝒊𝒔𝒑𝒐𝒏𝒊𝒃𝒍𝒆\x20𝒆𝒏\x20𝒆𝒔𝒕𝒆\x20𝒎𝒐𝒎𝒆𝒏𝒕𝒐!',_0x3db164,rcanal,{'mentions':[_0x4af231]});return;}let _0x24c8b2=_0x1277f6[_0x56beb1(0x99)][_0x296a64[_0x56beb1(0xa8)]]?.[_0x56beb1(0xa5)]?.['some'](_0x4f2f6d=>_0x4f2f6d[_0x56beb1(0x8c)]===_0x296a64[_0x56beb1(0x8c)]);if(_0x24c8b2){_0x578c11['reply'](_0x3db164[_0x56beb1(0x9b)],_0x56beb1(0xbc)+_0x296a64[_0x56beb1(0x88)]+_0x56beb1(0x8f),_0x3db164,rcanal,{'mentions':[_0x4af231]}),cooldowns[_0x4af231]=_0x466690;return;}if(_0x296a64[_0x56beb1(0xa8)]!==_0x4af231){setTimeout(async()=>{const _0x5ae87c=_0x56beb1;let _0x5276af=Math[_0x5ae87c(0xad)]()<0.5;if(_0x5276af){!_0x1277f6[_0x5ae87c(0x99)][_0x4af231]&&(_0x1277f6[_0x5ae87c(0x99)][_0x4af231]={'characters':[],'characterCount':0x0,'totalRwcoins':0x0});_0x1277f6[_0x5ae87c(0x99)][_0x4af231][_0x5ae87c(0xa5)]['push']({'name':_0x296a64[_0x5ae87c(0x88)],'url':_0x296a64[_0x5ae87c(0x8c)],'value':_0x296a64[_0x5ae87c(0xb8)]});_0x1277f6[_0x5ae87c(0x99)][_0x296a64['userId']]&&(_0x1277f6['usuarios'][_0x296a64['userId']]['characters']=_0x1277f6[_0x5ae87c(0x99)][_0x296a64['userId']]['characters']['filter'](_0x2c7f44=>_0x2c7f44['url']!==_0x296a64[_0x5ae87c(0x8c)]));_0x1277f6[_0x5ae87c(0xa6)]=_0x1277f6['personajesReservados'][_0x5ae87c(0x91)](_0xa45b17=>_0xa45b17['id']!==_0x54f883),guardarDatos(_0x4cde3a);let _0xa770bd=_0x296a64[_0x5ae87c(0xa8)],_0x8791f2=await _0x578c11[_0x5ae87c(0xb1)](_0xa770bd);await _0x578c11['reply'](_0x3db164[_0x5ae87c(0x9b)],'¡𝑭𝒆𝒍𝒊𝒄𝒊𝒅𝒂𝒅𝒆𝒔\x20@'+_0x4af231[_0x5ae87c(0x9c)]('@')[0x0]+_0x5ae87c(0xb4)+_0x296a64[_0x5ae87c(0x88)]+'\x20𝒅𝒆\x20@'+_0xa770bd['split']('@')[0x0]+'!',_0x3db164,{'mentions':[_0x4af231,_0xa770bd]});}else{let _0x209dfb=_0x296a64[_0x5ae87c(0xa8)],_0x35d5d2=await _0x578c11[_0x5ae87c(0xb1)](_0x209dfb);await _0x578c11['reply'](_0x3db164[_0x5ae87c(0x9b)],_0x5ae87c(0x93)+_0x296a64[_0x5ae87c(0x88)]+'\x20𝒅𝒆\x20@'+_0x209dfb['split']('@')[0x0]+'!',_0x3db164,{'mentions':[_0x4af231,_0x209dfb]});}cooldowns[_0x4af231]=_0x466690;});return;}!_0x1277f6[_0x56beb1(0x99)][_0x4af231]&&(_0x1277f6[_0x56beb1(0x99)][_0x4af231]={'characters':[],'characterCount':0x0,'totalRwcoins':0x0});let _0x211441=_0x1277f6[_0x56beb1(0x99)][_0x4af231],_0x8ca9dd=_0x211441['characters']?.[_0x56beb1(0xb7)](_0x45135f=>_0x45135f['url']===_0x296a64['url']);if(_0x8ca9dd){_0x578c11['reply'](_0x3db164[_0x56beb1(0x9b)],_0x56beb1(0x92)+_0x296a64[_0x56beb1(0x88)]+'!',_0x3db164,rcanal,{'mentions':[_0x4af231]});return;}_0x211441[_0x56beb1(0xa5)][_0x56beb1(0xbb)]({'name':_0x296a64[_0x56beb1(0x88)],'url':_0x296a64['url'],'value':_0x296a64[_0x56beb1(0xb8)]}),_0x211441[_0x56beb1(0x89)]++,_0x211441[_0x56beb1(0xa7)]+=_0x296a64['value'],_0x1277f6[_0x56beb1(0x99)][_0x4af231]=_0x211441,_0x1277f6[_0x56beb1(0xa6)]=_0x1277f6[_0x56beb1(0xa6)][_0x56beb1(0x91)](_0x556a51=>_0x556a51['id']!==_0x54f883),guardarDatos(_0x4cde3a),_0x578c11[_0x56beb1(0xb9)](_0x3db164['chat'],_0x56beb1(0x8b)+_0x4af231[_0x56beb1(0x9c)]('@')[0x0]+',\x20𝒐𝒃𝒕𝒖𝒗𝒊𝒔𝒕𝒆\x20𝒂\x20'+_0x296a64[_0x56beb1(0x88)]+'!',_0x3db164,{'mentions':[_0x4af231]}),cooldowns[_0x4af231]=_0x466690;};handler[_0x48a5e9(0xbd)]=['confirmar'],handler['tags']=[_0x48a5e9(0xb0)],handler[_0x48a5e9(0xa1)]=['c','confirmar'],handler[_0x48a5e9(0x8e)]=!![];export default handler;
+import { readFileSync } from 'fs';
+import { obtenerDatos, guardarDatos } from '../lib/gachaCache.js';
+
+const COOLDOWN_MS = 10 * 60 * 1000; // 10 minutos
+
+/**
+ * Verifica que sea MeguminBot
+ */
+const isMeguminBotMD = () => {
+    try {
+        const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
+        if (pkg.name !== 'Megumin-Bot-MD') return false;
+        if (pkg.repository?.url !== 'git+https://github.com/David-Chian/Megumin-Bot-MD.git') return false;
+        return true;
+    } catch (e) {
+        console.error('Error al leer package.json:', e);
+        return false;
+    }
+};
+
+// Cooldowns
+let cooldowns = {};
+
+let handler = async (m, { conn }) => {
+    // Solo funciona si es respuesta a un mensaje
+    if (!m.quoted) return;
+
+    if (!isMeguminBotMD()) {
+        await conn.reply(m.chat, '𝑬𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒔𝒐𝒍𝒐 𝒆𝒔𝒕𝒂 𝒅𝒊𝒔𝒑𝒐𝒏𝒊𝒃𝒍𝒆 𝒑𝒂𝒓𝒂 `𝑴𝒆𝒈𝒖𝒎𝒊𝒏-𝑩𝒐𝒕-𝑴𝑫`.\n 🔥 https://github.com/David-Chian/Megumin-Bot-MD', m, rcanal);
+        return;
+    }
+
+    const chatId = m.chat;
+    const senderId = m.sender;
+    const senderName = await conn.getName(senderId);
+
+    // Extraer ID del personaje del mensaje citado
+    const idMatch = m.quoted.text?.match(/<id:(.*)>/);
+    const personajeId = idMatch?.[1];
+
+    if (!personajeId) return;
+
+    const datos = obtenerDatos();
+
+    // Inicializar chat si no existe
+    if (!datos.chats[chatId]) {
+        datos.chats[chatId] = { usuarios: {}, personajesReservados: [] };
+    }
+
+    const chatData = datos.chats[chatId];
+
+    // Buscar el personaje reservado
+    const personaje = chatData.personajesReservados?.find(p => p.id === personajeId);
+
+    // Verificar cooldown
+    const ahora = Date.now();
+    const ultimoUso = cooldowns[senderId] || 0;
+
+    if (ahora - ultimoUso < COOLDOWN_MS) {
+        const restante = COOLDOWN_MS - (ahora - ultimoUso);
+        const minutos = Math.floor(restante / 60000);
+        const segundos = Math.floor((restante % 60000) / 1000);
+
+        await conn.reply(m.chat, `𝐷𝑒𝑏𝑒𝑠 𝑒𝑠𝑝𝑒𝑟𝑎𝑟 𝑎𝑛𝑡𝑒𝑠 𝑑𝑒 𝑖𝑛𝑡𝑒𝑛𝑡𝑎𝑟 𝑛𝑢𝑒𝑣𝑎𝑚𝑒𝑛𝑡𝑒.\n𝑻𝒊𝒆𝒎𝒑𝒐 𝒓𝒆𝒔𝒕𝒂𝒏𝒕𝒆: ${minutos} 𝒎𝒊𝒏𝒖𝒕𝒐𝒔 𝒚 ${segundos} 𝒔𝒆𝒈𝒖𝒏𝒅𝒐𝒔.`, m, rcanal);
+        return;
+    }
+
+    if (!personaje) {
+        conn.reply(m.chat, '¡𝑳𝒐 𝒔𝒊𝒆𝒏𝒕𝒐, 𝒆𝒔𝒕𝒆 𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆 𝒏𝒐 𝒆𝒔𝒕𝒂 𝒅𝒊𝒔𝒑𝒐𝒏𝒊𝒃𝒍𝒆 𝒆𝒏 𝒆𝒔𝒕𝒆 𝒎𝒐𝒎𝒆𝒏𝒕𝒐!', m, rcanal, { mentions: [senderId] });
+        return;
+    }
+
+    // Verificar si ya está en el inventario de alguien
+    const yaReclamado = chatData.usuarios[personaje.userId]?.characters?.some(c => c.url === personaje.url);
+
+    if (yaReclamado) {
+        conn.reply(m.chat, `¡𝑬𝒍 𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆 ${personaje.name} 𝒚𝒂 𝒆𝒔 𝒅𝒆 𝒐𝒕𝒓𝒐 𝒖𝒔𝒖𝒂𝒓𝒊𝒐 𝒚 𝒏𝒐 𝒑𝒖𝒆𝒅𝒆𝒔 𝒓𝒐𝒃𝒂𝒓𝒍𝒐!\n𝑷𝒓𝒖𝒆𝒃𝒂 𝒔𝒖𝒆𝒓𝒕𝒆 𝒄𝒐𝒏 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 !𝒓𝒐𝒃𝒂𝒓𝒑`, m, rcanal, { mentions: [senderId] });
+        cooldowns[senderId] = ahora;
+        return;
+    }
+
+    // Si el personaje fue reservado por otro usuario, intentar robarlo (50% probabilidad)
+    if (personaje.userId !== senderId) {
+        const exito = Math.random() < 0.5;
+
+        if (exito) {
+            // Inicializar usuario si no existe
+            if (!chatData.usuarios[senderId]) {
+                chatData.usuarios[senderId] = { characters: [], characterCount: 0, totalRwcoins: 0 };
+            }
+
+            // Agregar al inventario del ladrón
+            chatData.usuarios[senderId].characters.push({
+                name: personaje.name,
+                url: personaje.url,
+                value: personaje.value
+            });
+
+            // Remover de reservados del dueño original
+            if (chatData.usuarios[personaje.userId]) {
+                chatData.usuarios[personaje.userId].characters =
+                    chatData.usuarios[personaje.userId].characters?.filter(c => c.url !== personaje.url) || [];
+            }
+
+            // Remover de personajes reservados
+            chatData.personajesReservados = chatData.personajesReservados.filter(p => p.id !== personajeId);
+
+            guardarDatos(datos);
+
+            const victimName = await conn.getName(personaje.userId);
+            await conn.reply(m.chat, `¡𝑭𝒆𝒍𝒊𝒄𝒊𝒅𝒂𝒅𝒆𝒔 @${senderId.split('@')[0]}, 𝒉𝒂𝒔 𝒓𝒐𝒃𝒂𝒅𝒐 𝒂 ${personaje.name} 𝒅𝒆 @${personaje.userId.split('@')[0]}!`, m, { mentions: [senderId, personaje.userId] });
+        } else {
+            const victimName = await conn.getName(personaje.userId);
+            await conn.reply(m.chat, `¡𝑵𝒐 𝒉𝒂𝒔 𝒑𝒐𝒅𝒊𝒅𝒐 𝒓𝒐𝒃𝒂𝒓 𝒆𝒍 𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆 ${personaje.name} 𝒅𝒆 @${personaje.userId.split('@')[0]}!`, m, { mentions: [senderId, personaje.userId] });
+        }
+
+        cooldowns[senderId] = ahora;
+        return;
+    }
+
+    // El personaje es del mismo usuario - reclamarlo
+    if (!chatData.usuarios[senderId]) {
+        chatData.usuarios[senderId] = { characters: [], characterCount: 0, totalRwcoins: 0 };
+    }
+
+    const usuario = chatData.usuarios[senderId];
+
+    // Verificar si ya lo tiene
+    const yaLoTiene = usuario.characters?.some(c => c.url === personaje.url);
+
+    if (yaLoTiene) {
+        conn.reply(m.chat, `¡𝒀𝒂 𝒕𝒊𝒆𝒏𝒆𝒔 𝒆𝒍 𝒑𝒆𝒓𝒔𝒐𝒏𝒂𝒋𝒆 ${personaje.name}!`, m, rcanal, { mentions: [senderId] });
+        return;
+    }
+
+    // Agregar personaje al inventario
+    usuario.characters.push({
+        name: personaje.name,
+        url: personaje.url,
+        value: personaje.value
+    });
+    usuario.characterCount++;
+    usuario.totalRwcoins += personaje.value;
+
+    // Actualizar datos
+    chatData.usuarios[senderId] = usuario;
+
+    // Remover de reservados
+    chatData.personajesReservados = chatData.personajesReservados.filter(p => p.id !== personajeId);
+
+    guardarDatos(datos);
+
+    conn.reply(m.chat, `¡𝑭𝒆𝒍𝒊𝒄𝒊𝒅𝒂𝒅𝒆𝒔 @${senderId.split('@')[0]}, 𝒐𝒃𝒕𝒖𝒗𝒊𝒔𝒕𝒆 𝒂 ${personaje.name}!`, m, { mentions: [senderId] });
+    cooldowns[senderId] = ahora;
+};
+
+handler.help = ['confirmar'];
+handler.tags = ['rollwaifu'];
+handler.command = ['c', 'confirmar'];
+handler.register = true;
+
+export default handler;
